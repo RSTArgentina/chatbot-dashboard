@@ -31,3 +31,31 @@ body {
     text-wrap: balance;
   }
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background-color: #E8C92B; /* Cambia este valor al color que desees */
+  color: #fff; /* Cambia este valor al color del texto seleccionado */
+}
+
+/* Estilo de la barra de desplazamiento */
+::-webkit-scrollbar {
+  width: 12px; 
+}
+
+::-webkit-scrollbar-track {
+  background-color: #E8C92B11; 
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #888; 
+  border-radius: 8px; /* Borde redondeado del pulgar */
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555; 
+}
