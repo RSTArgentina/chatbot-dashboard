@@ -5,16 +5,14 @@ export default function Panel() {
     <div className='flex flex-col gap-5 p-5 bg-primary text-secondary rounded-2xl'>
       <h1>Ultimos clientes</h1>
       <table>
-        <thead>
+        <tr>
           <th>Nombre</th>
           <th>Numero</th>
           <th>Accion</th>
-        </thead>
-        <tbody>
-          <tr>
-            <td></td>
-          </tr>
-        </tbody>
+        </tr>
+        <tr>
+          <td></td>
+        </tr>
       </table>
     </div>
   );

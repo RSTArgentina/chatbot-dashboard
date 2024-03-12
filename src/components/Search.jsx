@@ -1,8 +1,10 @@
 import React from "react";
 
-export default function Search() {
+export default function Search({ className }) {
   return (
-    <label className='flex items-center h-10 gap-2 input input-bordered text-neutral'>
+    <label
+      className={`flex ${className} items-center gap-2 input input-bordered text-neutral`}
+    >
       <input type='text' className='grow' placeholder='Search' />
       <svg
         xmlns='http://www.w3.org/2000/svg'

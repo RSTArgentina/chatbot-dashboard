@@ -13,6 +13,10 @@ export { default as Dashboard } from "./dashboard.svg";
 export { default as Message } from "./message.svg";
 export { default as LogOut } from "./logout.svg";
 
+// CLIENTS
+export { default as ArrowLeft } from "./arrowL.svg";
+export { default as ArrowRight } from "./arrowR.svg";
+
 // CARD
 export { default as People } from "./people.svg";
 
