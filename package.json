@@ -16,6 +16,7 @@
     "sweetalert": "^2.1.2"
   },
   "devDependencies": {
+    "@svgr/webpack": "^8.1.0",
     "autoprefixer": "^10.0.1",
     "daisyui": "^4.7.3",
     "eslint": "^8",
