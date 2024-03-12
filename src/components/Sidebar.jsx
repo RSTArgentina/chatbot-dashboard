@@ -61,10 +61,10 @@ export default function Sidebar() {
         </ul>
       </div>
 
-      <a className='flex items-center gap-2 pl-5'>
+      <Link href='/' className='flex items-center gap-2 pl-5'>
         <LogOut className='w-4 h-4' />
         Cerrar sesión
-      </a>
+      </Link>
     </div>
   );
 }
