@@ -48,7 +48,7 @@ export default function Home() {
           type='text'
           name='username'
           placeholder='Ingrese su nombre de usuario'
-          className={`input input-bordered ${
+          className={`input input-bordered text-neutral ${
             errors.username && touched.username && "border-red-600 border-2"
           }`}
         />
@@ -59,7 +59,7 @@ export default function Home() {
           type='password'
           name='password'
           placeholder='Ingrese su contraseña'
-          className={`input input-bordered ${
+          className={`input input-bordered text-neutral ${
             errors.password && touched.password && "border-red-600 border-2"
           }`}
         />
