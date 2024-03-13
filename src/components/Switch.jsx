@@ -1,18 +1,9 @@
 import React from "react";
 
 export default function Switch() {
-  const handleChange = (e) => {
-    console.log(e);
-  };
-
   return (
     <label className='swap swap-rotate'>
-      <input
-        type='checkbox'
-        className='theme-controller'
-        value='dark'
-        onChange={handleChange}
-      />
+      <input type='checkbox' className='theme-controller' value='dark' />
 
       {/* sun icon */}
       <svg
