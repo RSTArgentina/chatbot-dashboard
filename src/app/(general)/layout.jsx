@@ -7,7 +7,7 @@ export const metadata = {
 
 export default function GeneralLayout({ children }) {
   return (
-    <section className='flex bg-base-100'>
+    <section className='flex bg-base-200'>
       <Sidebar />
       <div className='flex-1'>
         <Navbar />

@@ -35,7 +35,7 @@ export default function Home() {
     });
 
   return (
-    <div className='flex items-center justify-center w-screen h-screen bg-base-200'>
+    <div className='flex items-center justify-center w-screen h-screen bg-base-300'>
       <form
         className='flex flex-col items-center gap-5 p-10 bg-primary rounded-2xl form-control'
         onSubmit={handleSubmit}

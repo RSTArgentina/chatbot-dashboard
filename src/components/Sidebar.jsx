@@ -3,13 +3,13 @@ import Link from "next/link";
 
 export default function Sidebar() {
   return (
-    <div className='sticky top-0 left-0 flex flex-col justify-between h-screen p-2 pb-5 bg-primary text-secondary'>
+    <div className='sticky top-0 left-0 flex flex-col justify-between h-screen p-2 pb-5 shadow-xl bg-base-100 text-neutral'>
       <div className='flex flex-col gap-5'>
         <Link
           href='/dashboard'
           className='flex flex-col items-center justify-center gap-3'
         >
-          <div className='w-full h-20 bg-secondary'></div>
+          <div className='w-full h-20 bg-primary'></div>
           <h1 className='text-xl font-bold'>DEMO NAME</h1>
         </Link>
         <ul className='w-56 menu [&>li>ul>li>a]:gap-5'>
@@ -18,25 +18,25 @@ export default function Sidebar() {
             <ul>
               <li>
                 <Link href='/dashboard'>
-                  <Dashboard className='w-4 h-4' />
+                  <Dashboard className='w-4 h-4 [&>path]:fill-neutral' />
                   Dashboard
                 </Link>
               </li>
               <li>
                 <Link href='/clients'>
-                  <Clients className='w-4 h-4' />
+                  <Clients className='w-4 h-4 [&>path]:fill-neutral' />
                   Clientes
                 </Link>
               </li>
               <li>
                 <Link href='/agents'>
-                  <Agents className='w-4 h-4' />
+                  <Agents className='w-4 h-4 [&>path]:fill-neutral' />
                   Agentes
                 </Link>
               </li>
               <li>
                 <Link href='/message'>
-                  <Message className='w-4 h-4' />
+                  <Message className='w-4 h-4 [&>path]:fill-neutral' />
                   Mensajes
                 </Link>
               </li>
@@ -60,9 +60,8 @@ export default function Sidebar() {
           </li>
         </ul>
       </div>
-
       <Link href='/' className='flex items-center gap-2 pl-5'>
-        <LogOut className='w-4 h-4' />
+        <LogOut className='w-4 h-4 [&>path]:fill-neutral' />
         Cerrar sesión
       </Link>
     </div>

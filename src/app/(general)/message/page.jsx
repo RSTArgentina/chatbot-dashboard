@@ -4,7 +4,7 @@ import React from "react";
 
 export default function Message() {
   return (
-    <div className='flex flex-col gap-5 p-5 m-5 bg-primary rounded-2xl text-secondary'>
+    <div className='flex flex-col gap-5 p-5 m-5 shadow-lg bg-base-100 rounded-2xl text-primary'>
       <div className='flex justify-between'>
         <Search className='h-12' />
         <button className='btn-md btn-disabled btn btn-secondary'>

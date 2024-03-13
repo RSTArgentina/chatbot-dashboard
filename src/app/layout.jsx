@@ -10,7 +10,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang='es'>
+    <html lang='es' data-theme='light'>
       <link rel='icon' href='/favicon.ico' sizes='any' />
       <body className={lexend.className}>{children}</body>
     </html>
