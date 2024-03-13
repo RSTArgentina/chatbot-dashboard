@@ -13,15 +13,19 @@ export default function Message() {
       </div>
 
       <table className='w-full'>
-        <tr>
-          <th>Referencia</th>
-          <th>Mensaje</th>
-          <th>Creado</th>
-          <th>Acciones</th>
-        </tr>
-        <tr>
-          <td></td>
-        </tr>
+        <thead>
+          <tr>
+            <th>Referencia</th>
+            <th>Mensaje</th>
+            <th>Creado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+          </tr>
+        </tbody>
       </table>
 
       <div className='flex justify-end gap-5'>

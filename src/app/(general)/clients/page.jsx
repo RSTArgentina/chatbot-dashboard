@@ -13,15 +13,19 @@ export default function Clients() {
       </div>
 
       <table className='w-full'>
-        <tr>
-          <th>Nombre</th>
-          <th>Telefono</th>
-          <th>Creado</th>
-          <th>Acciones</th>
-        </tr>
-        <tr>
-          <td></td>
-        </tr>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Telefono</th>
+            <th>Creado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+          </tr>
+        </tbody>
       </table>
 
       <div className='flex justify-end gap-5'>

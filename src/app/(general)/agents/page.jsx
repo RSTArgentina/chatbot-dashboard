@@ -13,17 +13,21 @@ export default function Agents() {
       </div>
 
       <table className='w-full'>
-        <tr>
-          <th>Nombre</th>
-          <th>Email</th>
-          <th>Creado</th>
-          <th>Rol</th>
-          <th>Estado</th>
-          <th>Acciones</th>
-        </tr>
-        <tr>
-          <td></td>
-        </tr>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Creado</th>
+            <th>Rol</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+          </tr>
+        </tbody>
       </table>
 
       <div className='flex justify-end gap-5'>

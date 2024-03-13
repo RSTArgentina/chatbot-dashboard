@@ -1,16 +1,15 @@
-import React from "react";
-
-export default function Search({ className }) {
+export default function SearchInput({ className }) {
   return (
     <label
       className={`flex ${className} items-center gap-2 input input-bordered text-neutral`}
+      id='search'
     >
-      <input type='text' className='grow' placeholder='Search' />
+      <input type='text' name='search' className='grow' placeholder='Search' />
       <svg
         xmlns='http://www.w3.org/2000/svg'
         viewBox='0 0 16 16'
-        fill='#3A3A45'
-        className='w-4 h-4 opacity-70 [&>path]:fill-neutral'
+        fill='currentColor'
+        className='w-4 h-4 opacity-70'
       >
         <path
           fillRule='evenodd'

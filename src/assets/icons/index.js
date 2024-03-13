@@ -13,6 +13,9 @@ export { default as Dashboard } from "./dashboard.svg";
 export { default as Message } from "./message.svg";
 export { default as LogOut } from "./logout.svg";
 
+// SEARCH
+export { default as Search } from "./search.svg";
+
 // CLIENTS
 export { default as ArrowLeft } from "./arrowL.svg";
 export { default as ArrowRight } from "./arrowR.svg";
