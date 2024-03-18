@@ -34,8 +34,12 @@ export default function Home() {
       onSubmit: async (values) => {
         const username = values.username;
         const password = values.password;
+        console.log("values");
+        console.log(values);
+        console.log(username, password);
         try {
           const response = await axios.post('https://api-danielbot.onrender.com/auth/login', { username, password });
+          console.log(response);
           if (response.status === 200) {
             // Inicio de sesión exitoso, redirigir al usuario a la página de dashboard
             router.push("/dashboard");
@@ -45,6 +49,7 @@ export default function Home() {
           }
         } catch (error) {
           console.error('Error al iniciar sesión:', error);
+          alert("Error al iniciar sesión")
         }
         
       },
@@ -84,15 +89,6 @@ export default function Home() {
       </form>
     </div>
 
-    // <main className='flex items-center justify-center w-screen h-screen bg-base-200'>
-    //   <div className='flex flex-col items-center gap-5 p-10 bg-primary rounded-2xl'>
-    //     <h1 className='text-2xl font-bold text-secondary'>Iniciar sesión</h1>
-    //     <form className='gap-5 form-control' action=''>
-    //       <input className='input input-bordered' type='text' />
-    //       <input className='input input-bordered' type='text' />
-    //       <button className='btn btn-secondary'>Iniciar sesión</button>
-    //     </form>
-    //   </div>
-    // </main>
+
   );
 }
