@@ -1,7 +1,6 @@
 "use client";
 
-import { Help, Setting } from "@/assets/icons";
-import { Search, Switch } from ".";
+import { Search, Switch, Setting, Help } from ".";
 import { usePathname } from "next/navigation";
 
 export default function navbar() {
