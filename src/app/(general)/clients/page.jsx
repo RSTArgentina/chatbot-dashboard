@@ -1,22 +1,12 @@
-"use client";
-
+import { fetchClients } from "@/app/lib/data";
 import { ArrowLeft, ArrowRight } from "@/assets/icons";
 import { AddAgentModal, Search } from "@/components";
 // import { useEffect, useState } from "react";
 
-export default function Clients() {
-  // const { clients, setClients } = useState();
-
-  // const getAllClient = () => {
-  //   fetch( "https://api-danielbot.onrender.com/clients")
-  //     .then((res) => res.json)
-  //     .then((data) => setClients(data))
-  //     .catch((err) => console.err(err));
-  // };
-
-  // useEffect(() => {
-  //   getAllClient();
-  // }, []);
+export default async function Clients() {
+  
+    const clients = await fetchClients();
+    console.log(clients);
 
   return (
     <>
@@ -31,22 +21,28 @@ export default function Clients() {
           </button>
         </div>
 
-        <table className='w-full'>
-          <thead>
-            <tr>
-              <th>Nombre</th>
-              <th>Telefono</th>
-              <th>Creado</th>
-              <th>Acciones</th>
+      <table className='w-full'>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Telefono</th>
+            <th>Creado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {clients.data.map((client) => (
+            <tr key={client.id}>
+              <td>{client.username}</td>
+              <td>{client.phone}</td>
+              <td>Creado</td> {/* CAMBIAR A CREATED_IN CUANDO ESTÉ CREADO EN LA API */}
+              <td>{client.action}</td>
+
             </tr>
-          </thead>
-          <tbody>
-            {/* {clients.map()} */}
-            <tr>
-              <td></td>
-            </tr>
-          </tbody>
-        </table>
+          ))}
+
+        </tbody>
+      </table>
 
         <div className='flex justify-end gap-5'>
           <ArrowLeft />
