@@ -35,7 +35,7 @@ export default async function Clients() {
             <tr key={client.id}>
               <td>{client.username}</td>
               <td>{client.phone}</td>
-              <td>Creado</td> {/* CAMBIAR A CREATED_IN CUANDO ESTÉ CREADO EN LA API */}
+              <td>Creado</td> {/* CAMBIAR A CREATED_IN CUANDO ESTÉ CREADO EN LA API (.created_in?.toString().slice(4,16)) */}
               <td>{client.action}</td>
 
             </tr>
