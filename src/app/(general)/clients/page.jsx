@@ -1,8 +1,13 @@
+import { fetchClients } from "@/app/lib/data";
 import { ArrowLeft, ArrowRight } from "@/assets/icons";
 import { Search } from "@/components";
 import React from "react";
 
-export default function Clients() {
+export default async function Clients() {
+  
+    const clients = await fetchClients();
+    console.log(clients);
+
   return (
     <div className='flex flex-col gap-5 p-5 m-5 shadow-lg bg-base-100 rounded-2xl text-neutral'>
       <div className='flex justify-between'>
@@ -22,9 +27,16 @@ export default function Clients() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td></td>
-          </tr>
+          {clients.data.map((client) => (
+            <tr key={client.id}>
+              <td>{client.username}</td>
+              <td>{client.phone}</td>
+              <td>{client.updated_in}</td> {/* CAMBIAR A CREATED_IN CUANDO ESTÉ CREADO EN LA API */}
+              <td>{client.action}</td>
+
+            </tr>
+          ))}
+
         </tbody>
       </table>
 
