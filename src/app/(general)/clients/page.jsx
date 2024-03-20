@@ -2,21 +2,18 @@
 
 import { ArrowLeft, ArrowRight } from "@/assets/icons";
 import { AddAgentModal, Search } from "@/components";
-// import { useEffect, useState } from "react";
+import { useAppDispatch, useAppSelector } from "@/lib/hook";
+import { Trash, Pen, Eye } from "@/assets/icons";
+import { deleteById, fetchClients } from "@/lib/features/client/slice";
+import { useEffect } from "react";
 
 export default function Clients() {
-  // const { clients, setClients } = useState();
+  const clients = useAppSelector((state) => state.client);
+  const dispatch = useAppDispatch();
 
-  // const getAllClient = () => {
-  //   fetch( "https://api-danielbot.onrender.com/clients")
-  //     .then((res) => res.json)
-  //     .then((data) => setClients(data))
-  //     .catch((err) => console.err(err));
-  // };
-
-  // useEffect(() => {
-  //   getAllClient();
-  // }, []);
+  useEffect(() => {
+    dispatch(fetchClients());
+  }, []);
 
   return (
     <>
@@ -31,22 +28,54 @@ export default function Clients() {
           </button>
         </div>
 
-        <table className='w-full'>
-          <thead>
-            <tr>
-              <th>Nombre</th>
-              <th>Telefono</th>
-              <th>Creado</th>
-              <th>Acciones</th>
-            </tr>
-          </thead>
-          <tbody>
-            {/* {clients.map()} */}
-            <tr>
-              <td></td>
-            </tr>
-          </tbody>
-        </table>
+        <div className='overflow-x-auto'>
+          <table className='table'>
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Edad</th>
+                <th>Activo</th>
+                <th>Telefono</th>
+                <th>Creado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              {clients &&
+                clients.map((client) => (
+                  <tr className='hover' key={client.id}>
+                    <td>{client.name}</td>
+                    <td>{client.surname}</td>
+                    <td>{client.age}</td>
+                    <td>
+                      <div
+                        className={`badge ${
+                          client.active ? "badge-success" : "badge-error"
+                        }`}
+                      ></div>
+                    </td>
+                    <td>{client.number}</td>
+                    <td>{client.createAt}</td>
+                    <td className='flex '>
+                      <button
+                        onClick={() => dispatch(deleteById(client.id))}
+                        className='btn btn-ghost btn-circle btn-sm'
+                      >
+                        <Trash className='[&>path]:fill-neutral' />
+                      </button>
+                      <button className='btn btn-ghost btn-circle btn-sm'>
+                        <Pen className='[&>path]:fill-neutral' />
+                      </button>
+                      <button className='btn btn-ghost btn-circle btn-sm'>
+                        <Eye className='[&>path]:fill-neutral' />
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+            </tbody>
+          </table>
+        </div>
 
         <div className='flex justify-end gap-5'>
           <ArrowLeft />

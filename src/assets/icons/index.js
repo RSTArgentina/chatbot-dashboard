@@ -13,6 +13,11 @@ export { default as Dashboard } from "./dashboard.svg";
 export { default as Message } from "./message.svg";
 export { default as LogOut } from "./logout.svg";
 
+// TABLE
+export { default as Eye } from "./eye.svg";
+export { default as Trash } from "./trash.svg";
+export { default as Pen } from "./pen.svg";
+
 // SEARCH
 export { default as Search } from "./search.svg";
 

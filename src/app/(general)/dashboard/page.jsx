@@ -1,5 +1,6 @@
 import { Card, Panel } from "@/components";
 import Chart from "@/components/Chart";
+
 export default function Dashboard() {
   return (
     <section className='flex flex-col gap-5'>

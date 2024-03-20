@@ -1,7 +1,6 @@
-import { Lexend } from "next/font/google";
 import "./globals.css";
-import { store } from "@/store/index";
-import { StoreProvider } from "./StoreProvider";
+import { Lexend } from "next/font/google";
+import StoreProvider from "./StoreProvider";
 
 const lexend = Lexend({ subsets: ["latin"] });
 
@@ -15,7 +14,7 @@ export default function RootLayout({ children }) {
     <html lang='es' data-theme='light'>
       <link rel='icon' href='/favicon.ico' sizes='any' />
       <body className={lexend.className}>
-        <StoreProvider>{children}</StoreProvider>
+        <StoreProvider count={10}>{children}</StoreProvider>
       </body>
     </html>
   );
