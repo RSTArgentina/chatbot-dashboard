@@ -17,6 +17,7 @@ export default function Clients() {
   //   dispatch(fetchClients());
   // }, []);
 
+
   const handleDelete = (client) => {
     swal(`¿ Seguro que quieres eliminar a ${client.name} ${client.surname} ?`, {
       buttons: true,
@@ -67,6 +68,7 @@ export default function Clients() {
             Agregar Cliente
           </button>
         </div>
+
 
         <div className='overflow-auto '>
           <table className='table table-pin-rows'>
@@ -122,6 +124,7 @@ export default function Clients() {
             </tbody>
           </table>
         </div>
+
 
         <div className='flex justify-end gap-5'>
           <ArrowLeft />

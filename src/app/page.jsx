@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 
 import axios from "axios";
 
+
 export default function Home() {
   const router = useRouter();
 
@@ -38,24 +39,23 @@ export default function Home() {
         console.log(values);
         console.log(username, password);
         try {
-          const response = await axios.post(
-            "https://api-danielbot.onrender.com/auth/login",
-            { username, password }
-          );
+
+          const response = await axios.post('https://api-danielbot.onrender.com/auth/login', { username, password });
+
           console.log(response);
           if (response.status === 200) {
             // Inicio de sesión exitoso, redirigir al usuario a la página de dashboard
             router.push("/dashboard");
           } else {
             // Inicio de sesión fallido, mostrar mensaje de error
-            console.error(
-              "Credenciales incorrectas. Por favor, inténtelo de nuevo."
-            );
+
+            console.error("Credenciales incorrectas. Por favor, inténtelo de nuevo.");
           }
         } catch (error) {
-          console.error("Error al iniciar sesión:", error);
-          alert("Error al iniciar sesión");
+          console.error('Error al iniciar sesión:', error);
+          alert("Error al iniciar sesión")
         }
+
       },
     });
 
@@ -73,9 +73,8 @@ export default function Home() {
           type='text'
           name='username'
           placeholder='Ingrese su nombre de usuario'
-          className={`input input-bordered text-neutral ${
-            errors.username && touched.username && "border-red-600 border-2"
-          }`}
+          className={`input input-bordered text-neutral ${errors.username && touched.username && "border-red-600 border-2"
+            }`}
         />
         <input
           onChange={handleChange}
@@ -84,9 +83,8 @@ export default function Home() {
           type='password'
           name='password'
           placeholder='Ingrese su contraseña'
-          className={`input input-bordered text-neutral ${
-            errors.password && touched.password && "border-red-600 border-2"
-          }`}
+          className={`input input-bordered text-neutral ${errors.password && touched.password && "border-red-600 border-2"
+            }`}
         />
 
         <button className='w-full btn btn-secondary' type='submit'>
@@ -94,5 +92,6 @@ export default function Home() {
         </button>
       </form>
     </div>
+
   );
 }
