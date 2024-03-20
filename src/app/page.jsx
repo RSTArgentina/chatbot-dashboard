@@ -4,7 +4,8 @@ import { useFormik } from "formik";
 import { ZodError, z } from "zod";
 import { useRouter } from "next/navigation";
 
-import axios from 'axios';
+import axios from "axios";
+
 
 export default function Home() {
   const router = useRouter();
@@ -38,20 +39,23 @@ export default function Home() {
         console.log(values);
         console.log(username, password);
         try {
+
           const response = await axios.post('https://api-danielbot.onrender.com/auth/login', { username, password });
+
           console.log(response);
           if (response.status === 200) {
             // Inicio de sesión exitoso, redirigir al usuario a la página de dashboard
             router.push("/dashboard");
           } else {
             // Inicio de sesión fallido, mostrar mensaje de error
+
             console.error("Credenciales incorrectas. Por favor, inténtelo de nuevo.");
           }
         } catch (error) {
           console.error('Error al iniciar sesión:', error);
           alert("Error al iniciar sesión")
         }
-        
+
       },
     });
 
@@ -88,7 +92,6 @@ export default function Home() {
         </button>
       </form>
     </div>
-
 
   );
 }

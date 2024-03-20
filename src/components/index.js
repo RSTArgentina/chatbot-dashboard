@@ -2,7 +2,7 @@ export { default as Card } from "./Card";
 export { default as Chart } from "./Chart";
 export { default as Flayer } from "./Flayer";
 export { default as Help } from "./Help";
-export { default as AddAgentModal } from "./Modal/AddAgentModal";
+export { default as PutClientModal } from "./Modal/PutClientModal";
 export { default as Navbar } from "./Navbar";
 export { default as Panel } from "./Panel";
 export { default as Search } from "./Search";
