@@ -1,7 +1,7 @@
 "use client";
 
 import { ArrowLeft, ArrowRight } from "@/assets/icons";
-import { Search, AddAgentModal } from "@/components";
+import { Search, PutClientModal } from "@/components";
 
 export default function Agents() {
   return (
@@ -40,7 +40,7 @@ export default function Agents() {
           <ArrowRight />
         </div>
       </div>
-      <AddAgentModal />
+      <PutClientModal />
     </>
   );
 }

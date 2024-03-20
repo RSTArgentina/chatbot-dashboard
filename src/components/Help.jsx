@@ -1,5 +1,5 @@
 import { Help as HelpIcon } from "@/assets/icons";
-import { AddAgentModal } from ".";
+import { PutClientModal } from ".";
 
 export default function Help() {
   return (
@@ -8,7 +8,7 @@ export default function Help() {
         className='w-6 h-6 [&>path]:fill-neutral cursor-pointer'
         onClick={() => document.getElementById("addAgent").showModal()}
       />
-      <AddAgentModal />
+      <PutClientModal />
     </>
   );
 }

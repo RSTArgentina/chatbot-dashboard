@@ -1,7 +1,7 @@
 "use client";
 
 import { ArrowLeft, ArrowRight } from "@/assets/icons";
-import { AddAgentModal, Search } from "@/components";
+import { PutClientModal, Search } from "@/components";
 
 export default function Message() {
   return (
@@ -38,7 +38,7 @@ export default function Message() {
           <ArrowRight />
         </div>
       </div>
-      <AddAgentModal />
+      <PutClientModal />
     </>
   );
 }

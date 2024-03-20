@@ -1,18 +1,34 @@
 "use client";
 
 import { ArrowLeft, ArrowRight, ArrowUp } from "@/assets/icons";
-import { AddAgentModal, Search } from "@/components";
+import { PutClientModal, Search } from "@/components";
 import { useAppDispatch, useAppSelector } from "@/lib/hook";
 import { Trash, Pen, EyeOpen, Filter, ArrowDown } from "@/assets/icons";
 import { deleteById } from "@/lib/features/client/slice";
+import swal from "sweetalert";
+import { useState } from "react";
 
 export default function Clients() {
   const clients = useAppSelector((state) => state.client);
   const dispatch = useAppDispatch();
+  const [data, setData] = useState(null);
 
   // useEffect(() => {
   //   dispatch(fetchClients());
   // }, []);
+
+  const handleDelete = (client) => {
+    swal(`¿ Seguro que quieres eliminar a ${client.name} ${client.surname} ?`, {
+      buttons: true,
+    }).then((value) => {
+      if (value === null) return;
+      swal("Cliente eliminado", " ", "success", {
+        buttons: false,
+        timer: 1500,
+      });
+      dispatch(deleteById(client.id));
+    });
+  };
 
   return (
     <>
@@ -46,7 +62,7 @@ export default function Clients() {
           </div>
           <button
             className='btn-md btn btn-secondary'
-            onClick={() => document.getElementById("addAgent").showModal()}
+            onClick={() => document.getElementById("putClient").showModal()}
           >
             Agregar Cliente
           </button>
@@ -83,12 +99,18 @@ export default function Clients() {
                     <td>{client.createAt}</td>
                     <td className='flex '>
                       <button
-                        onClick={() => dispatch(deleteById(client.id))}
+                        onClick={() => handleDelete(client)}
                         className='btn btn-ghost btn-circle btn-sm'
                       >
                         <Trash className='[&>path]:fill-neutral' />
                       </button>
-                      <button className='btn btn-ghost btn-circle btn-sm'>
+                      <button
+                        onClick={() => {
+                          setData(client);
+                          document.getElementById("putClient").showModal();
+                        }}
+                        className='btn btn-ghost btn-circle btn-sm'
+                      >
                         <Pen className='[&>path]:fill-neutral' />
                       </button>
                       <button className='btn btn-ghost btn-circle btn-sm'>
@@ -107,7 +129,7 @@ export default function Clients() {
         </div>
       </div>
 
-      <AddAgentModal />
+      <PutClientModal data={data} />
     </>
   );
 }
