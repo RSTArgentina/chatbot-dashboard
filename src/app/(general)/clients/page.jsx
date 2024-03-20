@@ -1,25 +1,49 @@
 "use client";
 
-import { ArrowLeft, ArrowRight } from "@/assets/icons";
+import { ArrowLeft, ArrowRight, ArrowUp } from "@/assets/icons";
 import { AddAgentModal, Search } from "@/components";
 import { useAppDispatch, useAppSelector } from "@/lib/hook";
-import { Trash, Pen, Eye } from "@/assets/icons";
-import { deleteById, fetchClients } from "@/lib/features/client/slice";
-import { useEffect } from "react";
+import { Trash, Pen, EyeOpen, Filter, ArrowDown } from "@/assets/icons";
+import { deleteById } from "@/lib/features/client/slice";
 
 export default function Clients() {
   const clients = useAppSelector((state) => state.client);
   const dispatch = useAppDispatch();
 
-  useEffect(() => {
-    dispatch(fetchClients());
-  }, []);
+  // useEffect(() => {
+  //   dispatch(fetchClients());
+  // }, []);
 
   return (
     <>
-      <div className='flex flex-col gap-5 p-5 m-5 shadow-lg bg-base-100 rounded-2xl text-neutral'>
+      <div className='flex flex-col h-[555px] gap-5 p-5 m-5 shadow-lg bg-base-100 rounded-2xl text-neutral'>
         <div className='flex justify-between'>
-          <Search className='h-12' />
+          <div className='flex gap-5'>
+            <Search className='h-12' />
+
+            <details className='dropdown'>
+              <summary className='m-1 btn'>
+                <Filter className='[&>path]:fill-neutral' />
+                Filter
+                {/* <label className='swap swap-rotate'>
+                  <input id='arrow' type='checkbox' />
+                  <ArrowDown className='[&>path]:fill-neutral swap-on' />
+                  <ArrowUp className='[&>path]:fill-neutral swap-off' />
+                </label> */}
+              </summary>
+              <ul
+                tabIndex={0}
+                className='z-10 p-2 shadow dropdown-content menu bg-base-100 rounded-box w-52'
+              >
+                <li>
+                  <a>Item 1</a>
+                </li>
+                <li>
+                  <a>Item 2</a>
+                </li>
+              </ul>
+            </details>
+          </div>
           <button
             className='btn-md btn btn-secondary'
             onClick={() => document.getElementById("addAgent").showModal()}
@@ -28,8 +52,8 @@ export default function Clients() {
           </button>
         </div>
 
-        <div className='overflow-x-auto'>
-          <table className='table'>
+        <div className='overflow-auto '>
+          <table className='table table-pin-rows'>
             <thead>
               <tr>
                 <th>Nombre</th>
@@ -68,7 +92,7 @@ export default function Clients() {
                         <Pen className='[&>path]:fill-neutral' />
                       </button>
                       <button className='btn btn-ghost btn-circle btn-sm'>
-                        <Eye className='[&>path]:fill-neutral' />
+                        <EyeOpen className='[&>path]:fill-neutral' />
                       </button>
                     </td>
                   </tr>
