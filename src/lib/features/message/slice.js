@@ -1,117 +1,69 @@
 import { createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
-import { createAsyncThunk } from "@reduxjs/toolkit";
-
-export const fetchClients = createAsyncThunk(
-  "client/fetchClients",
-  async () => {
-    try {
-      const response = await axios.get(
-        "https://api-danielbot.onrender.com/clients"
-      );
-      console.log(response.data);
-      return response.data;
-    } catch (error) {
-      throw error;
-    }
-  }
-);
 
 // const initialState = [];
 
 const initialState = [
   {
     id: 1,
-    name: "Alejo",
-    surname: "Araya",
-    age: 23,
-    active: true,
-    number: 2613430975,
-    createAt: "10/23/12",
+    reference: "1",
+    content: "Este es el listado de productos de la empresa",
+    createAt: "21/03/24",
   },
   {
     id: 2,
-    name: "Juan",
-    surname: "García",
-    age: 30,
-    active: false,
-    number: 2655512345,
-    createAt: "05/15/14",
+    reference: "2",
+    content: "Hola, ¿en qué puedo ayudarte?",
+    createAt: "21/03/24",
   },
   {
     id: 3,
-    name: "María",
-    surname: "Martínez",
-    age: 28,
-    active: true,
-    number: 2698765432,
-    createAt: "08/07/15",
+    reference: "3",
+    content: "Buenos días, ¿cómo puedo asistirte?",
+    createAt: "21/03/24",
   },
   {
     id: 4,
-    name: "Pedro",
-    surname: "López",
-    age: 35,
-    active: false,
-    number: 2643217890,
-    createAt: "03/12/13",
+    reference: "4",
+    content: "¿Necesitas ayuda con algo en particular?",
+    createAt: "21/03/24",
   },
   {
     id: 5,
-    name: "Luisa",
-    surname: "Pérez",
-    age: 25,
-    active: true,
-    number: 2612345678,
-    createAt: "11/30/11",
+    reference: "5",
+    content: "¡Hola! ¿Cómo puedo ayudarte hoy?",
+    createAt: "21/03/24",
   },
   {
     id: 6,
-    name: "Ana",
-    surname: "Hernández",
-    age: 29,
-    active: true,
-    number: 2634567890,
-    createAt: "09/18/17",
+    reference: "6",
+    content: "¿En qué puedo ayudarte en este momento?",
+    createAt: "21/03/24",
   },
   {
     id: 7,
-    name: "Diego",
-    surname: "Ramírez",
-    age: 27,
-    active: false,
-    number: 2678901234,
-    createAt: "02/05/16",
+    reference: "7",
+    content: "¿Tienes alguna consulta que necesites resolver?",
+    createAt: "21/03/24",
   },
   {
     id: 8,
-    name: "Sofía",
-    surname: "Gómez",
-    age: 31,
-    active: true,
-    number: 2689012345,
-    createAt: "06/24/10",
+    reference: "8",
+    content: "¿En qué puedo asistirte hoy?",
+    createAt: "21/03/24",
   },
   {
     id: 9,
-    name: "Javier",
-    surname: "Díaz",
-    age: 26,
-    active: false,
-    number: 2645678901,
-    createAt: "04/09/18",
+    reference: "9",
+    content: "Hola, ¿cómo puedo ayudarte en este momento?",
+    createAt: "21/03/24",
   },
   {
     id: 10,
-    name: "Carolina",
-    surname: "Sánchez",
-    age: 33,
-    active: true,
-    number: 2623456789,
-    createAt: "01/20/19",
+    reference: "10",
+    content: "¿En qué puedo colaborar contigo?",
+    createAt: "21/03/24",
   },
 ];
-
 export const messageSlice = createSlice({
   name: "message",
   initialState,

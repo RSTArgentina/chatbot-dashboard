@@ -5,6 +5,7 @@ export { default as Flayer } from "./Flayer";
 export { default as Help } from "./Help";
 export { default as PutAgentModal } from "./Modal/PutAgentModal";
 export { default as PutClientModal } from "./Modal/PutClientModal";
+export { default as PutMessageModal } from "./Modal/PutMessageModal";
 export { default as SettingModal } from "./Modal/SettingModal";
 export { default as Navbar } from "./Navbar";
 export { default as Panel } from "./Panel";
