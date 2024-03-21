@@ -1,9 +1,8 @@
 "use client";
 
-import { ArrowLeft, ArrowRight, ArrowUp } from "@/assets/icons";
-import { PutClientModal, Search } from "@/components";
+import { PutClientModal, Search, Filter } from "@/components";
 import { useAppDispatch, useAppSelector } from "@/lib/hook";
-import { Trash, Pen, EyeOpen, Filter, ArrowDown } from "@/assets/icons";
+import { Trash, Pen, EyeOpen, ArrowLeft, ArrowRight } from "@/assets/icons";
 import { deleteById } from "@/lib/features/client/slice";
 import swal from "sweetalert";
 import { useState } from "react";
@@ -16,7 +15,6 @@ export default function Clients() {
   // useEffect(() => {
   //   dispatch(fetchClients());
   // }, []);
-
 
   const handleDelete = (client) => {
     swal(`¿ Seguro que quieres eliminar a ${client.name} ${client.surname} ?`, {
@@ -37,29 +35,14 @@ export default function Clients() {
         <div className='flex justify-between'>
           <div className='flex gap-5'>
             <Search className='h-12' />
-
-            <details className='dropdown'>
-              <summary className='m-1 btn'>
-                <Filter className='[&>path]:fill-neutral' />
-                Filter
-                {/* <label className='swap swap-rotate'>
-                  <input id='arrow' type='checkbox' />
-                  <ArrowDown className='[&>path]:fill-neutral swap-on' />
-                  <ArrowUp className='[&>path]:fill-neutral swap-off' />
-                </label> */}
-              </summary>
-              <ul
-                tabIndex={0}
-                className='z-10 p-2 shadow dropdown-content menu bg-base-100 rounded-box w-52'
-              >
-                <li>
-                  <a>Item 1</a>
-                </li>
-                <li>
-                  <a>Item 2</a>
-                </li>
-              </ul>
-            </details>
+            <Filter>
+              <li>
+                <a>Item 1</a>
+              </li>
+              <li>
+                <a>Item 2</a>
+              </li>
+            </Filter>
           </div>
           <button
             className='btn-md btn btn-secondary'
@@ -68,7 +51,6 @@ export default function Clients() {
             Agregar Cliente
           </button>
         </div>
-
 
         <div className='overflow-auto '>
           <table className='table table-pin-rows'>
@@ -124,7 +106,6 @@ export default function Clients() {
             </tbody>
           </table>
         </div>
-
 
         <div className='flex justify-end gap-5'>
           <ArrowLeft />
