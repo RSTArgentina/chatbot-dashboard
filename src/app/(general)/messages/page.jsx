@@ -9,8 +9,14 @@ import { useState } from "react";
 import View from "@/components/View";
 import Link from "next/link";
 
-export default function Message() {
-  const messages = useAppSelector((state) => state.message);
+export default function Message({ searchParams }) {
+  const q = searchParams?.q || ""; //parametros de búsqueda
+  const messages = useAppSelector((state) => {
+    if (q) {
+      return state.message.filter((message) => message.content.toLowerCase().includes(q.toLowerCase()));
+    }
+    return state.message;
+  });
   const dispatch = useAppDispatch();
   const [data, setData] = useState();
 
