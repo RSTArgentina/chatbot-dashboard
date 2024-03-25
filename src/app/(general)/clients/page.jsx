@@ -9,15 +9,18 @@ import { useState } from "react";
 
 
 export default function Clients({ searchParams }) {
+
   
-  console.log(searchParams);
-  const q = searchParams?.query || ""; //parametros de búsqueda
-  console.log("query");
-  console.log(q);
-  const clients = useAppSelector((state) => state.client);
+  const q = searchParams?.q || ""; //parametros de búsqueda
+  const clients = useAppSelector((state) => {
+    if (q) {
+      return state.client.filter((client) => client.name.toLowerCase().includes(q.toLowerCase()) || client.surname.toLowerCase().includes(q.toLowerCase()));
+    }
+    return state.client;
+  });
   const dispatch = useAppDispatch();
   const [data, setData] = useState(null);
-  
+
 
 
 

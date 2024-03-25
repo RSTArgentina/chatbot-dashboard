@@ -16,9 +16,9 @@ export default function SearchInput({ className }) {
   }
 
 
-  console.log("Search component:");
+ /*  console.log("Search component:");
   console.log(searchParams);
-  console.log(pathname);
+  console.log(pathname); */
 
 
 
