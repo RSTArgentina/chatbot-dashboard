@@ -8,8 +8,14 @@ import { useState } from "react";
 import swal from "sweetalert";
 import Form from "./components/Form";
 
-export default function Agents() {
-  const agents = useAppSelector((state) => state.agent);
+export default function Agents({ searchParams }) {
+  const q = searchParams?.q || ""; //parametros de búsqueda
+  const agents = useAppSelector((state) => {
+    if (q) {
+      return state.agent.filter((agent) => agent.name.toLowerCase().includes(q.toLowerCase()) || agent.surname.toLowerCase().includes(q.toLowerCase()));
+    }
+    return state.agent;
+  });
   const dispatch = useAppDispatch();
   const [agent, setAgent] = useState();
   const [openModal, setOpenModal] = useState(false);
