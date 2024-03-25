@@ -7,14 +7,20 @@ import { deleteById } from "@/lib/features/client/slice";
 import swal from "sweetalert";
 import { useState } from "react";
 
-export default function Clients() {
+
+export default function Clients({ searchParams }) {
+  
+  console.log(searchParams);
+  const q = searchParams?.query || ""; //parametros de búsqueda
+  console.log("query");
+  console.log(q);
   const clients = useAppSelector((state) => state.client);
   const dispatch = useAppDispatch();
   const [data, setData] = useState(null);
+  
 
-  // useEffect(() => {
-  //   dispatch(fetchClients());
-  // }, []);
+
+
 
   const handleDelete = (client) => {
     swal(`¿ Seguro que quieres eliminar a ${client.name} ${client.surname} ?`, {
@@ -74,9 +80,8 @@ export default function Clients() {
                     <td>{client.age}</td>
                     <td>
                       <div
-                        className={`badge ${
-                          client.active ? "badge-success" : "badge-error"
-                        }`}
+                        className={`badge ${client.active ? "badge-success" : "badge-error"
+                          }`}
                       ></div>
                     </td>
                     <td>{client.number}</td>
