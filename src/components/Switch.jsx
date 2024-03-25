@@ -1,9 +1,19 @@
 import React from "react";
 
+// const handleClick = (e) => {
+//   console.log(e.target.value);
+//   localStorage.setItem("miGato", "Juan");
+// };
+
 export default function Switch() {
   return (
     <label className='swap swap-rotate'>
-      <input type='checkbox' className='theme-controller' value='dark' />
+      <input
+        // onClick={(e) => handleClick(e)}
+        type='checkbox'
+        className='theme-controller'
+        value='dark'
+      />
 
       {/* sun icon */}
       <svg
