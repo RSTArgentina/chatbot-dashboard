@@ -19,7 +19,7 @@ export default function Sidebar() {
               <li>
                 <Link href='/dashboard'>
                   <Dashboard className='w-4 h-4 [&>path]:fill-neutral' />
-                  Dashboard
+                  Panel de control
                 </Link>
               </li>
               <li>
@@ -35,7 +35,7 @@ export default function Sidebar() {
                 </Link>
               </li>
               <li>
-                <Link href='/message'>
+                <Link href='/messages'>
                   <Message className='w-4 h-4 [&>path]:fill-neutral' />
                   Mensajes
                 </Link>

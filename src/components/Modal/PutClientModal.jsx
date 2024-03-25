@@ -65,7 +65,10 @@ export default function PutClientModal({ data }) {
           </button>
         </form>
         {data ? <h1>UPDATE</h1> : <h1>CREATE</h1>}
-        <form onSubmit={handleSubmit} className='flex flex-col gap-5 py-5'>
+        <form
+          onSubmit={handleSubmit}
+          className='flex flex-col gap-5 py-5 text-neutral'
+        >
           <input
             value={values.name}
             onChange={handleChange}

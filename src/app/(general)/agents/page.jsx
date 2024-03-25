@@ -26,9 +26,9 @@ export default function Agents() {
   return (
     <>
       <div className='flex h-[555px] flex-col gap-5 p-5 m-5 shadow-lg bg-base-100 rounded-2xl text-neutral'>
-        <div className='flex justify-between'>
-          <div className='flex gap-5'>
-            <Search className='h-12' />
+        <div className='flex'>
+          <Search className='flex-1 h-12 ' />
+          <div className='flex items-center justify-end flex-1 gap-5 flex-2'>
             <Filter>
               <li>
                 <a>Item 1</a>
@@ -37,13 +37,13 @@ export default function Agents() {
                 <a>Item 2</a>
               </li>
             </Filter>
+            <button
+              className='btn-md btn btn-secondary'
+              onClick={() => document.getElementById("putAgent").showModal()}
+            >
+              Agregar Agente
+            </button>
           </div>
-          <button
-            className='btn-md btn btn-secondary'
-            onClick={() => document.getElementById("putAgent").showModal()}
-          >
-            Agregar Agente
-          </button>
         </div>
 
         <div className='overflow-auto '>
