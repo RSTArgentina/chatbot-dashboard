@@ -1,14 +1,18 @@
 "use client";
 
 import { ArrowLeft, ArrowRight, EyeOpen, Pen, Trash } from "@/assets/icons";
-import { Search, PutAgentModal, Filter } from "@/components";
+import { Search, PutAgentModal, Filter, Modal } from "@/components";
 import { deleteById, create } from "@/lib/features/agent/slice";
 import { useAppDispatch, useAppSelector } from "@/lib/hook";
+import { useState } from "react";
 import swal from "sweetalert";
+import Form from "./components/Form";
 
 export default function Agents() {
   const agents = useAppSelector((state) => state.agent);
   const dispatch = useAppDispatch();
+  const [agent, setAgent] = useState();
+  const [openModal, setOpenModal] = useState(false);
 
   const handleDelete = (agent) => {
     swal(`¿ Seguro que quieres eliminar a ${agent.name} ${agent.surname} ?`, {
@@ -87,6 +91,7 @@ export default function Agents() {
                     </button>
                     <button
                       onClick={() => {
+                        setAgent(agent);
                         document.getElementById("putAgent").showModal();
                       }}
                       className='btn btn-ghost btn-circle btn-sm'
@@ -108,7 +113,10 @@ export default function Agents() {
           <ArrowRight />
         </div>
       </div>
-      <PutAgentModal />
+
+      <Modal id={"putAgent"} title={agent ? "UPDATE AGENTE" : "CREATE AGENTE"}>
+        <Form agent={agent} length={agents.length} />
+      </Modal>
     </>
   );
 }

@@ -1,11 +1,17 @@
 "use client";
 
-import { create } from "@/lib/features/client/slice";
+import { create } from "@/lib/features/message/slice";
 import { useAppDispatch, useAppSelector } from "@/lib/hook";
 import { useFormik } from "formik";
+import { usePathname } from "next/navigation";
+import { useParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 
-export default function PutClientModal({ data }) {
-  const clients = useAppSelector((state) => state.client);
+export default function PutMessageModal({ data }) {
+  const params = useSearchParams();
+  console.log(params);
+  const messages = useAppSelector((state) => state.message);
+  // messages.filter((item) => item.id === pathname);
   const dispatch = useAppDispatch();
 
   // const userSchema = z.object({
@@ -35,12 +41,9 @@ export default function PutClientModal({ data }) {
     resetForm,
   } = useFormik({
     initialValues: {
-      id: data?.id ?? clients.length + 1,
-      name: data?.name ?? "",
-      surname: data?.surname ?? "",
-      age: data?.age ?? 0,
-      active: data?.active ?? true,
-      number: data?.number ?? 0,
+      id: data?.id ?? messages.length + 1,
+      reference: data?.reference ?? "",
+      content: data?.content ?? "",
       createAt: data?.createAt ?? formatDate(),
     },
     // validate: (values) => {
@@ -57,7 +60,7 @@ export default function PutClientModal({ data }) {
   });
 
   return (
-    <dialog id='putClient' className='modal'>
+    <dialog id='putMessage' className='modal'>
       <div className='modal-box'>
         <form method='dialog'>
           <button className='absolute btn btn-sm btn-circle btn-ghost right-2 top-2 text-neutral'>
@@ -70,39 +73,22 @@ export default function PutClientModal({ data }) {
           className='flex flex-col gap-5 py-5 text-neutral'
         >
           <input
-            value={values.name}
+            value={values.reference}
             onChange={handleChange}
             onBlur={handleBlur}
             type='text'
-            name='name'
-            placeholder='Nombre'
+            name='reference'
+            placeholder='Referencia'
             className='w-full input input-bordered'
           />
+
           <input
+            value={values.content}
             onChange={handleChange}
             onBlur={handleBlur}
-            value={values.surname}
             type='text'
-            name='surname'
-            placeholder='Apellido'
-            className='w-full input input-bordered'
-          />
-          <input
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={values.age}
-            type='number'
-            name='age'
-            placeholder='Edad'
-            className='w-full input input-bordered'
-          />
-          <input
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={values.number}
-            type='number'
-            name='number'
-            placeholder='Numero de celular'
+            name='content'
+            placeholder='Contenido'
             className='w-full input input-bordered'
           />
 
