@@ -17,7 +17,6 @@ export const fetchClients = createAsyncThunk(
   }
 );
 
-// const initialState = [];
 
 const initialState = [
   {
