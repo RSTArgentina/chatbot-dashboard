@@ -10,7 +10,8 @@ import { useState } from "react";
 export default function Clients() {
   const clients = useAppSelector((state) => state.client);
   const dispatch = useAppDispatch();
-  const [data, setData] = useState(null);
+  const [data, setData] = useState();
+  const [openModal, setOpenModal] = useState(false);
 
   // useEffect(() => {
   //   dispatch(fetchClients());
@@ -91,7 +92,9 @@ export default function Clients() {
                       <button
                         onClick={() => {
                           setData(client);
-                          document.getElementById("putClient").showModal();
+                          setOpenModal(!openModal);
+                          openModal &&
+                            document.getElementById("putClient").showModal();
                         }}
                         className='btn btn-ghost btn-circle btn-sm'
                       >

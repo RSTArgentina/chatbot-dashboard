@@ -1,11 +1,12 @@
 "use client";
 
-import { create } from "@/lib/features/message/slice";
+import { create } from "@/lib/features/client/slice";
 import { useAppDispatch, useAppSelector } from "@/lib/hook";
 import { useFormik } from "formik";
 
-export default function PutMessageModal({ data }) {
-  const messages = useAppSelector((state) => state.message);
+export default function PutClientModal({ data }) {
+  console.log(data);
+  const clients = useAppSelector((state) => state.client);
   const dispatch = useAppDispatch();
 
   // const userSchema = z.object({
@@ -35,9 +36,12 @@ export default function PutMessageModal({ data }) {
     resetForm,
   } = useFormik({
     initialValues: {
-      id: data?.id ?? messages.length + 1,
-      reference: data?.reference ?? "",
-      content: data?.content ?? "",
+      id: data?.id ?? clients.length + 1,
+      name: data?.name ?? "",
+      surname: data?.surname ?? "",
+      age: data?.age ?? 0,
+      active: data?.active ?? true,
+      number: data?.number ?? 0,
       createAt: data?.createAt ?? formatDate(),
     },
     // validate: (values) => {
@@ -54,7 +58,7 @@ export default function PutMessageModal({ data }) {
   });
 
   return (
-    <dialog id='putMessage' className='modal'>
+    <dialog id='putClient' className='modal'>
       <div className='modal-box'>
         <form method='dialog'>
           <button className='absolute btn btn-sm btn-circle btn-ghost right-2 top-2 text-neutral'>
@@ -67,22 +71,39 @@ export default function PutMessageModal({ data }) {
           className='flex flex-col gap-5 py-5 text-neutral'
         >
           <input
-            value={values.reference}
+            value={values.name}
             onChange={handleChange}
             onBlur={handleBlur}
             type='text'
-            name='reference'
-            placeholder='Referencia'
+            name='name'
+            placeholder='Nombre'
             className='w-full input input-bordered'
           />
-
           <input
-            value={values.content}
             onChange={handleChange}
             onBlur={handleBlur}
+            value={values.surname}
             type='text'
-            name='content'
-            placeholder='Contenido'
+            name='surname'
+            placeholder='Apellido'
+            className='w-full input input-bordered'
+          />
+          <input
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={values.age}
+            type='number'
+            name='age'
+            placeholder='Edad'
+            className='w-full input input-bordered'
+          />
+          <input
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={values.number}
+            type='number'
+            name='number'
+            placeholder='Numero de celular'
             className='w-full input input-bordered'
           />
 

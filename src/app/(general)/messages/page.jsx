@@ -7,6 +7,7 @@ import { deleteById } from "@/lib/features/message/slice";
 import swal from "sweetalert";
 import { useState } from "react";
 import View from "@/components/View";
+import Link from "next/link";
 
 export default function Message() {
   const messages = useAppSelector((state) => state.message);
@@ -77,17 +78,33 @@ export default function Message() {
                         <Trash className='[&>path]:fill-neutral' />
                       </button>
 
-                      <button
-                        onClick={() => {
-                          setData(message);
-                          document.getElementById("putMessage").showModal();
-                        }}
+                      <a
+                        href={`?id=${message.id}#modal`}
                         className='btn btn-ghost btn-circle btn-sm'
                       >
                         <Pen className='[&>path]:fill-neutral' />
-                      </button>
+                      </a>
 
                       <View data={message} />
+
+                      <div className='modal' role='dialog' id='modal'>
+                        <div className='modal-box'>
+                          <div className='modal-action'>
+                            <a
+                              href='#'
+                              className='absolute btn btn-sm btn-circle btn-ghost right-2 top-2'
+                            >
+                              ✕
+                            </a>
+                          </div>
+                          <form action=''></form>
+                          <div className='modal-action'>
+                            <a href='#' className='btn'>
+                              Yay!
+                            </a>
+                          </div>
+                        </div>
+                      </div>
                     </td>
                   </tr>
                 ))}
