@@ -53,7 +53,7 @@ export default function Home() {
           }
         } catch (error) {
           console.error('Error al iniciar sesión:', error);
-          alert("Error al iniciar sesión")
+          alert("Error al iniciar sesión", error.message)
         }
 
       },
