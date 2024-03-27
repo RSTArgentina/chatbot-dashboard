@@ -3,12 +3,16 @@
 import { useFormik } from "formik";
 import { ZodError, z } from "zod";
 import { useRouter } from "next/navigation";
+import { logOut, logIn } from "@/lib/features/auth/slice"
+import { useAppDispatch } from "@/lib/hook"
 
 import axios from "axios";
 
 
 export default function Home() {
   const router = useRouter();
+  const dispatch = useAppDispatch();
+
 
   const userSchema = z.object({
     username: z
