@@ -47,7 +47,10 @@ export default function Home() {
           const response = await axios.post('https://api-danielbot.onrender.com/auth/login', { username, password });
 
           console.log(response);
+          console.log(response.data.access_token);
+
           if (response.status === 200) {
+            dispatch(logIn(response.data.access_token));
             // Inicio de sesión exitoso, redirigir al usuario a la página de dashboard
             router.push("/dashboard");
           } else {

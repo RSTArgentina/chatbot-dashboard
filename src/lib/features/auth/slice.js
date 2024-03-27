@@ -17,7 +17,7 @@ export const authSlice = createSlice({
       logIn: (state, action) => {
         return{
             value:{
-                accessToken:action.payload.accessToken,
+                accessToken:action.payload,
             }
         }
       }

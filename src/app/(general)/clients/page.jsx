@@ -18,6 +18,8 @@ export default function Clients({ searchParams }) {
     }
     return state.client;
   });
+  const auth = useAppSelector((state) => state.auth.value.accessToken); 
+  console.log(auth);
   const dispatch = useAppDispatch();
   const [data, setData] = useState();
   const [openModal, setOpenModal] = useState(false);
